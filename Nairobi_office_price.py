@@ -29,14 +29,12 @@ c = np.random.rand()
 learning_rate = 0.0001
 epochs = 10
 
-# Training the model
 for epoch in range(epochs):
     y_pred = m * x + c
     error = mean_squared_error(y, y_pred)
     print(f"Epoch {epoch+1}: Mean Squared Error = {error}")
     m, c = gradient_descent(x, y, m, c, learning_rate)
 
-# Plotting the line of best fit after training
 plt.scatter(x, y, color="blue", label="Data points")
 plt.plot(x, m * x + c, color="red", label="Line of Best Fit")
 plt.xlabel("Office Size (sq. ft)")
@@ -44,7 +42,7 @@ plt.ylabel("Office Price")
 plt.legend()
 plt.show()
 
-# Predicting the price for an office size of 100 sq. ft
+# Predict the price for an office size of 100 sq. ft
 size = 100
 predicted_price = m * size + c
 predicted_price = max(predicted_price, 0)  # Ensures price is non-negative
